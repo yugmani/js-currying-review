@@ -110,3 +110,29 @@ console.log(people1.getCompleteName());
 //My name is Bruce Wayne
 console.log(people2.getCompleteName());
 // My name is Kent Clark
+
+// Inheritance
+// ****************
+
+function SuperHero(fName, lName) {
+  //this = {}
+  //reference to People object and its properties.
+  People.call(this, fName, lName);
+  this.isSuperHero = true;
+}
+
+SuperHero.prototype.fightCrime = function () {
+  console.log('Fighting crime');
+};
+
+SuperHero.prototype = Object.create(People.prototype);
+
+// const batman = new SuperHero();
+//batman has access to SueprHero and fightCrime.
+
+//to have access to firstName and lastName of People as well, inheritance comes in hand
+const batman = new SuperHero('Prasiddha', 'Gurung');
+
+console.log(batman.getCompleteName());
+//My name is Prasiddha Gurung
+
