@@ -81,3 +81,32 @@ console.log(p2.name);
 // globalThis.name = 'Superman';
 
 // saySomething();
+
+// Prototype
+// *******************
+
+function People(fName, lName) {
+  this.firstName = fName;
+  this.lastName = lName;
+}
+
+const people1 = new People('Bruce', 'Wayne');
+const people2 = new People('Kent', 'Clark');
+
+//Adding a method specific to people1
+people1.getFullName = function () {
+  return this.firstName + ' ' + this.lastName;
+};
+
+console.log(people1.getFullName()); //Bruce Wayne
+//console.log(people2.getFullName()); //Error: people2.getFullName is not a function
+
+//Adding a method for all instances
+People.prototype.getCompleteName = function () {
+  return 'My name is ' + this.firstName + ' ' + this.lastName;
+};
+
+console.log(people1.getCompleteName());
+//My name is Bruce Wayne
+console.log(people2.getCompleteName());
+// My name is Kent Clark
