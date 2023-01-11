@@ -136,3 +136,34 @@ const batman = new SuperHero('Prasiddha', 'Gurung');
 console.log(batman.getCompleteName());
 //My name is Prasiddha Gurung
 
+// Class Keyword
+// ***********************
+
+class Employer {
+  constructor(fName, lName) {
+    this.firstName = fName;
+    this.lastName = lName;
+  }
+
+  sayMyName() {
+    return this.firstName + ' ' + this.lastName;
+  }
+}
+
+const employer1 = new Employer('Bimal', 'Thapa');
+console.log(employer1.sayMyName()); //Bimal Thapa
+
+//inheriting Employer to SuperMan
+class SuperMan extends Employer {
+  constructor(fName, lName) {
+    super(fName, lName);
+    this.isSuperMan = true;
+  }
+
+  fightCrime() {
+    console.log('Fighting chaos');
+  }
+}
+
+const catman = new SuperMan('Prayash', 'Gurung');
+console.log(catman.sayMyName()); //Prayash Gurung
